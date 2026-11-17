@@ -35,37 +35,43 @@
     pointer-events: none;
   }
 
+  /* Bahn: abgerundetes Rechteck, kein Pill. */
   .track {
     position: relative;
     display: inline-block;
-    width: 52px;
-    height: 30px;
+    width: 58px;
+    height: 38px;
     flex: none;
     border: 1px solid var(--ds-line-strong);
-    border-radius: 999px;
+    border-radius: 13px;
     background: var(--ds-surface-2);
-    transition: background var(--ds-dur-2) var(--ds-ease-out), border-color var(--ds-dur-2) var(--ds-ease-out);
+    transition:
+      background var(--ds-dur-2) var(--ds-ease-out),
+      border-color var(--ds-dur-2) var(--ds-ease-out);
   }
 
+  /* Knopf: weißes Quadrat mit weichem Rand, kein Kreis. */
   .knob {
     position: absolute;
     top: 3px;
     left: 3px;
-    width: 22px;
-    height: 22px;
-    border-radius: 999px;
-    background: var(--ds-fg);
-    transition: transform var(--ds-dur-2) var(--ds-ease-out), background var(--ds-dur-2) var(--ds-ease-out);
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #ffffff 60%, #e6e6e6 100%);
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: transform var(--ds-dur-2) var(--ds-ease-out);
   }
 
   input:checked + .track {
-    background: var(--ds-brand-matte);
-    border-color: var(--ds-brand-matte);
+    background: var(--ds-category);
+    border-color: var(--ds-category);
   }
 
   input:checked + .track .knob {
-    transform: translateX(22px);
-    background: #000000;
+    transform: translateX(20px);
   }
 
   input:focus-visible + .track {
