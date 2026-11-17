@@ -97,19 +97,72 @@ export const components: ComponentEntry[] = [
     variants: 2,
     description: 'Haarlinie horizontal und vertikal, nie dekorativ.'
   },
+  {
+    slug: 'spinner',
+    name: 'Spinner',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Ladeanzeige als Ring in Petrol, drei Größen. Reduced motion hält den Ring an.'
+  },
+  {
+    slug: 'slider',
+    name: 'Slider',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Regler mit 48-px-Ziel, Petrol-Füllung, Wertanzeige, Hinweis und Fehler.'
+  },
+  {
+    slug: 'skeleton',
+    name: 'Skeleton',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Platzhalter mit Korn statt Shimmer, als Zeile, Absatz oder Block.'
+  },
+  {
+    slug: 'toast',
+    name: 'Toast',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Kurze Rückmeldung unten rechts, vier Rollen, verschwindet von selbst.'
+  },
+  {
+    slug: 'dialog',
+    name: 'Dialog',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Karte in der Mitte, Scrim, nativer Fokus und Escape.'
+  },
+  {
+    slug: 'cookie-banner',
+    name: 'CookieBanner',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Einwilligung als Region mit zwei gleich großen Handlungen und Einstellungen-Link.'
+  },
+  {
+    slug: 'tooltip',
+    name: 'Tooltip',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Kurzer Hinweis bei Fokus und Hover, vier Platzierungen.'
+  },
+  {
+    slug: 'tabs',
+    name: 'Tabs',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Bereiche wechseln, aktive Fläche in Petrol, Pfeiltasten und Home/End.'
+  },
 
   planned('radio-group', 'Radio Group', 'Eine Auswahl aus wenigen, als Zeilen oder Karten.'),
   planned('select', 'Select', 'Auswahl im Feld, gleiche Optik wie Field.'),
   planned('textarea', 'Textarea', 'Mehrzeilig, gleiche Kante und Fokus wie Field.'),
   planned('label', 'Label', 'Mono-Label mit 0,12 em Laufweite.'),
-  planned('tabs', 'Tabs', 'Bereiche wechseln, aktive Fläche statt Unterstrich.'),
   planned('accordion', 'Accordion', 'Aufklappbare Abschnitte, einer oder mehrere offen.'),
   planned('collapsible', 'Collapsible', 'Ein Abschnitt, ein Schalter.'),
-  planned('dialog', 'Dialog', 'Karte in der Mitte, Scrim, Escape.'),
   planned('sheet', 'Sheet', 'Karte von rechts oder unten — Grundlage des Konto-Screens.'),
   planned('drawer', 'Drawer', 'Von unten, für Mobil.'),
   planned('popover', 'Popover', 'Kleine Fläche an einem Anker.'),
-  planned('tooltip', 'Tooltip', 'Kurzer Hinweis bei Fokus und Hover.'),
   planned('dropdown-menu', 'Dropdown Menu', 'Aktionen hinter einem Knopf.'),
   planned('context-menu', 'Context Menu', 'Aktionen per Rechtsklick.'),
   planned('menubar', 'Menubar', 'Zeile aus Menüs, für Desktop-Werkzeuge.'),
@@ -129,12 +182,9 @@ export const components: ComponentEntry[] = [
   planned('resizable', 'Resizable', 'Zwei Bereiche mit ziehbarer Trennung.'),
   planned('scroll-area', 'Scroll Area', 'Eigener Scrollbalken, dünn und ruhig.'),
   planned('progress', 'Progress', 'Balken mit Wert und Beschriftung.'),
-  planned('skeleton', 'Skeleton', 'Platzhalter mit Korn statt Shimmer.'),
-  planned('slider', 'Slider', 'Regler mit 48-px-Knopf.'),
   planned('toggle', 'Toggle', 'An/Aus als Fläche.'),
   planned('toggle-group', 'Toggle Group', 'Mehrere Toggles, eine Auswahl.'),
   planned('alert', 'Alert', 'Hinweis mit Rolle, Symbol und Aktion.'),
-  planned('toast', 'Toast', 'Kurze Rückmeldung, verschwindet von selbst.'),
   planned('aspect-ratio', 'Aspect Ratio', 'Feste Proportion für Medien.'),
   planned('hover-card', 'Hover Card', 'Vorschau bei Hover oder Fokus.'),
 

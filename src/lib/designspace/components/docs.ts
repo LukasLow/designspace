@@ -85,6 +85,96 @@ export const docs: ComponentDoc[] = [
     states: ['horizontal', 'vertikal'],
     keyboard: 'role="separator", keine Interaktion.',
     source: 'src/lib/components/Separator.svelte'
+  },
+  {
+    slug: 'spinner',
+    name: 'Spinner',
+    description:
+      'Ladeanzeige als Ring in Petrol. Drei Größen, role="status". Ohne Bewegung unter prefers-reduced-motion.',
+    props: ['size: sm | md | lg', 'label?: string'],
+    states: ['sm 24', 'md 32', 'lg 48', 'reduziert: stehender Ring'],
+    keyboard: 'Kein Fokus. role="status" mit aria-label meldet den Zustand.',
+    source: 'src/lib/designspace/components/Spinner.svelte'
+  },
+  {
+    slug: 'slider',
+    name: 'Slider',
+    description:
+      'Regler mit 48-px-Ziel, Petrol-Füllung und Wertanzeige. Fehler wechselt die Füllung auf Rot.',
+    props: [
+      'label, id, value, min, max, step',
+      'unit?, hint?, error?, disabled?'
+    ],
+    states: ['Standard', 'Hover', 'Fokus', 'Aktiv (Druck)', 'Disabled', 'Fehler'],
+    keyboard: 'Tab fokussiert den Regler. Pfeiltasten ändern den Wert, Home und End springen an die Grenzen.',
+    source: 'src/lib/designspace/components/Slider.svelte'
+  },
+  {
+    slug: 'skeleton',
+    name: 'Skeleton',
+    description:
+      'Platzhalter mit feinem Korn statt Schimmer. Eine Fläche oder ein Absatz aus Zeilen, ohne Bewegung.',
+    props: ['width?, height?, radius: sm | md | control | lg | pill', 'lines?: number', 'label?: string'],
+    states: ['Zeile', 'Absatz aus drei Zeilen', 'Block', 'Karte'],
+    keyboard: 'Keine Interaktion. Ohne Label aria-hidden, mit Label role="status".',
+    source: 'src/lib/designspace/components/Skeleton.svelte'
+  },
+  {
+    slug: 'toast',
+    name: 'Toast',
+    description:
+      'Kurze Rückmeldung unten rechts, verschwindet nach fünf Sekunden. Rolle steuert Farbe und aria-live.',
+    props: [
+      'open, tone: info | success | warning | danger',
+      'title, message?, duration?, inline?, dismissible?, action?'
+    ],
+    states: ['Info', 'Erfolg', 'Warnung', 'Fehler', 'inline', 'geschlossen'],
+    keyboard: 'Schließen ist ein 48-px-Knopf: Tab fokussiert, Enter oder Leertaste schließt.',
+    source: 'src/lib/designspace/components/Toast.svelte'
+  },
+  {
+    slug: 'dialog',
+    name: 'Dialog',
+    description:
+      'Karte in der Mitte mit Scrim. Natives <dialog>, Fokus bleibt im Fenster, Escape und Scrim-Klick schließen.',
+    props: ['open, id?, title, description?', 'children, footer?, onclose?'],
+    states: ['geschlossen', 'offen', 'Fokus im Dialog', 'Escape', 'Scrim-Klick'],
+    keyboard: 'Escape schließt. Tab läuft im Dialog, der Fokus kehrt zum Auslöser zurück.',
+    source: 'src/lib/designspace/components/Dialog.svelte'
+  },
+  {
+    slug: 'cookie-banner',
+    name: 'CookieBanner',
+    description:
+      'Einwilligung als Region, nicht als Blocker. Akzeptieren und Ablehnen sind gleich große Handlungen.',
+    props: [
+      'open, title?, description?',
+      'acceptLabel?, declineLabel?, settingsHref?, inline?',
+      'onaccept?, ondecline?'
+    ],
+    states: ['offen', 'inline', 'akzeptiert', 'abgelehnt', 'mit Einstellungen-Link'],
+    keyboard: 'Tab erreicht beide 48-px-Knöpfe und den Einstellungen-Link. Enter oder Leertaste wählt.',
+    source: 'src/lib/designspace/components/CookieBanner.svelte'
+  },
+  {
+    slug: 'tooltip',
+    name: 'Tooltip',
+    description:
+      'Kurzer Hinweis bei Hover und Fokus. Keine Interaktion, der Trigger bleibt das einzige Ziel.',
+    props: ['id, label, placement: top | bottom | left | right', 'open?, children'],
+    states: ['oben', 'unten', 'links', 'rechts', 'Hover', 'Fokus', 'fest offen'],
+    keyboard: 'Nur der Trigger ist fokussierbar; der Tooltip erscheint bei Fokus und verschwindet wieder.',
+    source: 'src/lib/designspace/components/Tooltip.svelte'
+  },
+  {
+    slug: 'tabs',
+    name: 'Tabs',
+    description:
+      'Bereiche wechseln, aktiv ist eine gefüllte Petrol-Fläche statt eines Unterstrichs. Pfeiltasten wechseln.',
+    props: ['id, items: { id, label }[]', 'value?, label?, panel?: Snippet'],
+    states: ['aktiv', 'inaktiv', 'Hover', 'Fokus', 'Panel'],
+    keyboard: 'Pfeil links/rechts wechselt, Home und End springen. Der Fokus folgt dem aktiven Tab.',
+    source: 'src/lib/designspace/components/Tabs.svelte'
   }
 ];
 

@@ -28,6 +28,10 @@
   --ds-line-strong: rgba(255, 255, 255, 0.36);
   --ds-line-faint: rgba(255, 255, 255, 0.08);
 
+  /* Scrim hinter modalen Flächen (Dialog). Eigenes Token, weil der Scrim
+     weder Text noch Linie ist und in Komponenten nicht als Literal steht. */
+  --ds-scrim: rgba(0, 0, 0, 0.72);
+
   /* Bedeutung — jede Farbe hat genau eine Rolle. */
   --ds-brand: #37b5be; /* Petrol · Handlung als Fläche: Buttons, aktive Fläche */
   --ds-brand-ink: #001416; /* Text auf Petrol */
