@@ -231,8 +231,23 @@ export const components: ComponentEntry[] = [
 
   /* --- Icons ----------------------------------------------------------- */
 
-  planned('icons-stroke', 'Icon-Set (Strich)', '24er-Raster, 1,8 px, runde Enden, keine Füllung.', 'icon'),
-  planned('icons-sizes', 'Icon-Größen', '16 / 20 / 24 / 28, im Text und allein.', 'icon'),
+  {
+    slug: 'icons-stroke',
+    name: 'Icon-Set (Strich)',
+    status: 'entwurf',
+    variants: 200,
+    description:
+      '200 Icons in zwölf Gruppen. 24er-Raster, 1,8 px, runde Enden, keine Füllung. Quelle: icons/index.ts.',
+    kind: 'icon'
+  },
+  {
+    slug: 'icons-sizes',
+    name: 'Icon-Größen',
+    status: 'entwurf',
+    variants: 3,
+    description: '16 / 20 / 24 px, umschaltbar auf /icons. Im Text, in Zeilen und allein.',
+    kind: 'icon'
+  },
   planned('icons-filled', 'Icon-Füllung', 'Wann ein Icon gefüllt sein darf (nur Hauptaktion).', 'icon'),
 
   /* --- Bewegung -------------------------------------------------------- */
