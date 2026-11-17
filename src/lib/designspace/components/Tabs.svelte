@@ -21,6 +21,17 @@
   } = $props();
 
   let tabEls: (HTMLButtonElement | null)[] = [];
+  let indicator = $state({ left: 0, width: 0 });
+
+  // Der Strich folgt dem aktiven Tab. Gemessen wird nach dem Rendern,
+  // damit die Bewegung zwischen zwei echten Positionen läuft.
+  $effect(() => {
+    const index = items.findIndex((item) => item.id === value);
+    const el = tabEls[index];
+    if (el) {
+      indicator = { left: el.offsetLeft, width: el.offsetWidth };
+    }
+  });
 
   function onKey(event: KeyboardEvent) {
     const current = items.findIndex((item) => item.id === value);
@@ -41,6 +52,12 @@
 </script>
 
 <div class="tabs" role="tablist" tabindex="-1" aria-label={label} onkeydown={onKey}>
+  <span
+    class="indicator"
+    aria-hidden="true"
+    style="transform: translateX({indicator.left}px); width: {indicator.width}px"
+  ></span>
+
   {#each items as item, index}
     <button
       bind:this={tabEls[index]}
@@ -69,12 +86,25 @@
 </div>
 
 <style>
-  /* Tabs wechseln Bereiche. Aktiv ist eine gefüllte Fläche, kein Unterstrich.
-     Pfeiltasten, Home und End wechseln; der Fokus folgt dem aktiven Tab. */
+  /* Tabs wie in der Kursvorlage: Unterstrich-Leiste, der aktive Strich
+     gleitet mit 200 ms zwischen den Tabs. Kein Pill, keine Fläche. */
   .tabs {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--ds-space-2);
+    gap: 2px;
+    border-bottom: 1px solid var(--ds-line);
+  }
+
+  .indicator {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 2px;
+    background: var(--ds-brand);
+    transition:
+      transform var(--ds-dur-2) var(--ds-ease-out),
+      width var(--ds-dur-2) var(--ds-ease-out);
   }
 
   button {
@@ -84,8 +114,8 @@
     min-height: var(--ds-tap-min);
     padding: 0 var(--ds-space-4);
     border: 1px solid transparent;
-    border-radius: var(--ds-radius-control);
-    background: var(--ds-surface-2);
+    border-radius: var(--ds-radius-control) var(--ds-radius-control) 0 0;
+    background: transparent;
     color: var(--ds-fg-dim);
     font-family: var(--ds-font-sans);
     font-size: var(--ds-text-sm);
@@ -97,19 +127,17 @@
   }
 
   button:hover {
-    background: var(--ds-surface-3);
+    background: var(--ds-surface-2);
     color: var(--ds-fg);
   }
 
   button.active {
-    background: var(--ds-brand-matte);
-    border-color: var(--ds-brand-matte);
-    color: var(--ds-brand-ink);
+    color: var(--ds-fg);
   }
 
   button:focus-visible {
     outline: var(--ds-border-focus) solid var(--ds-focus);
-    outline-offset: 3px;
+    outline-offset: -3px;
   }
 
   .panel {
@@ -124,6 +152,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .indicator,
     button {
       transition: none;
     }
