@@ -1,0 +1,13 @@
+/* Atkinson Hyperlegible: self-hosted über Fontsource, kein CDN.
+   Vite bündelt die woff2-Dateien und schreibt den base-Pfad korrekt,
+   damit die Seite auch unter GitHub Pages (/designspace/) funktioniert. */
+@import '@fontsource/atkinson-hyperlegible/400.css';
+@import '@fontsource/atkinson-hyperlegible/700.css';
+
+@import './lib/designspace/tokens/color.css';
+@import './lib/designspace/tokens/type.css';
+@import './lib/designspace/tokens/space.css';
+@import './lib/designspace/tokens/motion.css';
+@import './lib/designspace/styles/reset.css';
+@import './lib/designspace/styles/base.css';
+@import './lib/designspace/styles/materials.css';

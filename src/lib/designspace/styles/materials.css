@@ -1,0 +1,34 @@
+/* DesignSpace — Material
+ *
+ * Entschieden in Runde 10: matte Flächen mit feinem Korn. Kein Glanzlicht,
+ * keine Wurfschatten. Das Korn ist ein SVG-Rauschen (feTurbulence,
+ * entsättigt, Kontrast 1,45) und liegt als background-image über der
+ * Flächenfarbe (background-blend-mode: overlay) — kein Pseudo-Element,
+ * damit Text und Inhalt unberührt bleiben.
+ */
+
+:root {
+  --ds-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='1.45' intercept='-0.22'/%3E%3CfeFuncG type='linear' slope='1.45' intercept='-0.22'/%3E%3CfeFuncB type='linear' slope='1.45' intercept='-0.22'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.81'/%3E%3C/svg%3E");
+  /* Kaum sichtbares Korn für sehr leichte Flächen (5 % Füllung). */
+  --ds-grain-soft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='1.45' intercept='-0.22'/%3E%3CfeFuncG type='linear' slope='1.45' intercept='-0.22'/%3E%3CfeFuncB type='linear' slope='1.45' intercept='-0.22'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Matte Markenfläche: gebrauchsfertig für Nicht-Komponenten (Demos, Seiten). */
+.ds-matte {
+  background-color: var(--ds-brand-matte);
+  background-image: var(--ds-grain);
+  background-size: 140px 140px;
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  box-shadow: none;
+  color: #000000;
+}
+
+/* Nur das Korn, ohne Farbe — für Komponenten, die ihre Fläche selbst setzen. */
+.ds-grain {
+  background-image: var(--ds-grain);
+  background-size: 140px 140px;
+  background-blend-mode: overlay;
+  background-repeat: repeat;
+  box-shadow: none;
+}

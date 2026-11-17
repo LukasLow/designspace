@@ -1,0 +1,116 @@
+/* DesignSpace — Basis
+ *
+ * Diese Datei legt nur das Fundament: schwarze Seite, Schrift, Fokus,
+ * Auswahl, Container. Sie enthält bewusst keine Komponenten-Optik und keine
+ * Marken-Farbe — die entsteht erst nach der Taste-Phase.
+ */
+
+html {
+  background: var(--ds-bg);
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--ds-bg);
+  color: var(--ds-fg);
+  font-family: var(--ds-font-sans);
+  font-size: var(--ds-text-base);
+  font-weight: var(--ds-weight-regular);
+  line-height: var(--ds-leading-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--ds-weight-bold);
+  line-height: var(--ds-leading-snug);
+  letter-spacing: var(--ds-tracking-tight);
+  text-wrap: balance;
+}
+
+p {
+  line-height: var(--ds-leading-normal);
+  text-wrap: pretty;
+}
+
+strong,
+b {
+  font-weight: var(--ds-weight-bold);
+}
+
+a {
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.22em;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background: var(--ds-fg);
+  color: var(--ds-bg);
+}
+
+:focus-visible {
+  outline: var(--ds-border-focus) solid var(--ds-focus);
+  outline-offset: 3px;
+  border-radius: var(--ds-radius-xs);
+}
+
+/* ------------------------------------------------------------ Bausteine */
+
+.ds-container {
+  width: min(100% - var(--ds-space-8), var(--ds-content-width));
+  margin-inline: auto;
+}
+
+.ds-measure {
+  max-width: var(--ds-measure);
+}
+
+.ds-eyebrow {
+  display: block;
+  font-size: var(--ds-text-2xs);
+  font-weight: var(--ds-weight-bold);
+  letter-spacing: var(--ds-tracking-wide);
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--ds-fg);
+}
+
+.ds-dim {
+  color: var(--ds-fg-dim);
+}
+
+.ds-rule {
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: var(--ds-line);
+}
+
+/* Einheitlicher Fokus für alle interaktiven Elemente. */
+.ds-tap {
+  min-height: var(--ds-tap-min);
+  min-width: var(--ds-tap-min);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

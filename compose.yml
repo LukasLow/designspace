@@ -1,0 +1,11 @@
+name: designspace
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    image: designspace:local
+    ports:
+      - "${PORT:-8008}:80"
+    restart: unless-stopped

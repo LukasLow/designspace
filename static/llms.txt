@@ -1,0 +1,36 @@
+# DesignSpace
+
+> Design-Bibliothek für Schwarz, Low Vision und eine eigene Formsprache.
+> Kein npm-Paket: `src/lib/designspace/` kopieren, fertig.
+
+## Installation
+
+    git clone --depth 1 https://github.com/LukasLow/designspace.git /tmp/designspace
+    mkdir -p src/lib/designspace
+    mv /tmp/designspace/src/lib/designspace src/lib/designspace
+    rm -rf /tmp/designspace
+
+Abhängigkeiten: Svelte 5, reines CSS. Kein Tailwind, kein Motion-Paket.
+Schrift: Atkinson Hyperlegible über `@fontsource/atkinson-hyperlegible`.
+
+## Regeln
+
+- `SKILL.md` — Installation und Überblick (Repo-Root)
+- `src/lib/designspace/docs/skill.md` — verbindliche Regeln
+- `src/lib/designspace/docs/regeln.md` — dieselben Regeln als Nachschlagewerk
+
+## Seiten
+
+- `/` — Start
+- `/components/` — Komponenten mit Props, Zuständen, Tastatur und Vorschau
+- `/showcase/` — Tokens und gebaute Bausteine
+- `/taste/` — Entscheidungsarchiv (24 Runden)
+- `/konto/` — erster echter Screen
+
+## Kern der Sprache
+
+Schwarz `#000`, Atkinson immer, kein Mittelgrau für Text, Mindestgrößen
+15 / 13,5 px, Tap-Ziele 48 px. Farbe trägt Bedeutung: Petrol Handlung,
+Powerade Info, Neon Erfolg, Violett Kategorie, Gold Warnung, Rot Fehler.
+Radius 18 für Controls, 22 für Karten. Symmetrie ist Pflicht, Druck senkrecht.
+Fehler als Karte, Info als Toast, Laden als Korn-Skeleton. Icons als Strich 1,8 px.

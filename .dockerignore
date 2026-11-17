@@ -1,0 +1,13 @@
+.git
+.github
+.agents
+.opencode
+**/node_modules
+**/.svelte-kit
+build
+dist
+.DS_Store
+*.log
+README.md
+AGENTS.md
+STATUS.md

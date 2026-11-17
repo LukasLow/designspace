@@ -1,0 +1,19 @@
+[dockerfile]
+  lines = '''
+FROM docker.io/alpine:latest
+'''
+
+[ports]
+  publish = []
+
+[volume]
+  volumes = []
+
+[network]
+  mode = ""
+
+[smd]
+  version = "0.6.0"
+  block_cmd = ["git commit"]
+
+# For more information see: smd --help | smd --agent | smd --changelog

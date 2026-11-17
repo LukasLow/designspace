@@ -1,0 +1,30 @@
+# syntax=docker/dockerfile:1
+
+# DesignSpace — statischer Export.
+#
+# Dieses Image wird nicht gestartet. `make build` baut nur die Stage `export`
+# und schreibt sie per `--output type=local` nach ./dist. Node lebt damit
+# ausschließlich im Container.
+
+FROM node:24-alpine AS build
+WORKDIR /app
+
+# GitHub Pages liefert unter /<repo>/ aus; der Workflow setzt BASE_PATH.
+# Lokal bleibt der Wert leer.
+ARG BASE_PATH=""
+ENV BASE_PATH=$BASE_PATH
+
+COPY package.json package-lock.json* ./
+# Mit Lockfile reproduzierbar (npm ci), ohne Lockfile (erster Build) eben
+# npm install. `make lock` erzeugt die Datei einmalig.
+RUN if [ -f package-lock.json ]; then \
+      npm ci --no-audit --no-fund; \
+    else \
+      npm install --no-audit --no-fund; \
+    fi
+
+COPY . .
+RUN npm run build
+
+FROM scratch AS export
+COPY --from=build /app/build /

@@ -1,0 +1,42 @@
+/* DesignSpace — Raum, Radius, Kante
+ *
+ * Abstände auf 4-px-Raster. Radien als benannte Stufen, damit die
+ * Formensprache pro Richtung nur an einer Stelle gedreht werden muss.
+ */
+
+:root {
+  --ds-space-1: 0.25rem; /* 4 */
+  --ds-space-2: 0.5rem; /* 8 */
+  --ds-space-3: 0.75rem; /* 12 */
+  --ds-space-4: 1rem; /* 16 */
+  --ds-space-5: 1.25rem; /* 20 */
+  --ds-space-6: 1.5rem; /* 24 */
+  --ds-space-7: 2rem; /* 32 */
+  --ds-space-8: 2.5rem; /* 40 */
+  --ds-space-9: 3rem; /* 48 */
+  --ds-space-10: 4rem; /* 64 */
+  --ds-space-11: 6rem; /* 96 */
+  --ds-space-12: 8rem; /* 128 */
+
+  --ds-radius-xs: 4px;
+  --ds-radius-sm: 8px;
+  --ds-radius-md: 14px;
+  /* Buttons und Eingaben: Turnier-Sieger Runde 9 (05 Weich 18). */
+  --ds-radius-control: 18px;
+  --ds-radius-lg: 22px;
+  --ds-radius-xl: 30px;
+  --ds-radius-pill: 999px;
+
+  --ds-border-hairline: 1px;
+  --ds-border-strong: 2px;
+  --ds-border-focus: 3px;
+
+  --ds-tap-min: 48px; /* Mindest-Tap-Ziel (Low Vision) */
+  --ds-content-width: 1200px;
+  --ds-measure: 62ch;
+
+  /* Zeilenhöhen für Listen (Runde 13: Grob gewählt). */
+  --ds-row-compact: 40px;
+  --ds-row-normal: 56px;
+  --ds-row-large: 84px;
+}

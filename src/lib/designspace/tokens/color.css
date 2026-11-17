@@ -1,0 +1,63 @@
+/* DesignSpace — Farbe
+ *
+ * Entschieden in den Runden 5 bis 8. Jeder Ton hat genau eine Bedeutung.
+ *
+ * Harte Regeln (Low Vision):
+ * - Hintergrund ist immer 100 % Schwarz. Kein Anthrazit als Seitenfläche.
+ * - Text nie in mittleren Graustufen. Sekundäres wird über Größe und Gewicht
+ *   unterschieden, nicht über #666/#888.
+ * - Farbe trägt Bedeutung, nie Dekoration.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* Flächen */
+  --ds-bg: #000000;
+  --ds-surface: #0a0a0a;
+  --ds-surface-2: #121212;
+  --ds-surface-3: #1c1c1c;
+
+  /* Text */
+  --ds-fg: #ffffff;
+  --ds-fg-dim: #d4d4d4; /* 14,6:1 auf Schwarz — bewusst hell, kein Mittelgrau */
+  --ds-fg-muted: #b8b8b8; /* nur für 14 px+ und nicht für Fließtext */
+
+  /* Linien */
+  --ds-line: rgba(255, 255, 255, 0.18);
+  --ds-line-strong: rgba(255, 255, 255, 0.36);
+  --ds-line-faint: rgba(255, 255, 255, 0.08);
+
+  /* Bedeutung — jede Farbe hat genau eine Rolle. */
+  --ds-brand: #37b5be; /* Petrol · Handlung als Fläche: Buttons, aktive Fläche */
+  --ds-brand-ink: #001416; /* Text auf Petrol */
+  --ds-brand-soft: rgba(55, 181, 190, 0.14);
+  /* Matte Variante der Marke: heller, damit schwarze Schrift 5,6:1 erreicht.
+     Gleiche Bedeutung, anderes Material — kein eigener Token für eine neue Rolle. */
+  --ds-brand-matte: #67b3b8;
+
+  --ds-info: #00a8e8; /* Powerade · Information als Linie/Text: Links, Werte */
+  --ds-info-ink: #001018;
+  --ds-info-soft: rgba(0, 168, 232, 0.14);
+
+  --ds-success: #00e89a; /* Neon · Erfolg als Punkt/Chip/Icon */
+  --ds-success-ink: #00170f;
+  --ds-success-soft: rgba(0, 232, 154, 0.14);
+
+  --ds-category: #c4a4ff; /* Violett · Kategorien und Datenreihen */
+  --ds-category-ink: #1a0e2e;
+  --ds-category-soft: rgba(196, 164, 255, 0.14);
+
+  --ds-warning: #ffc24b; /* Gold · Warnung */
+  --ds-warning-ink: #1a1206;
+  --ds-warning-soft: rgba(255, 194, 75, 0.14);
+
+  --ds-danger: #ff0000; /* Rot · Fehler */
+  --ds-danger-ink: #000000; /* Schwarz auf Rot: 5,3:1 — Weiß wäre nur 4,0:1 */
+  --ds-danger-soft: rgba(255, 0, 0, 0.14);
+
+  /* Akzent = Marke. */
+  --ds-accent: var(--ds-brand);
+  --ds-accent-ink: var(--ds-brand-ink);
+  --ds-focus: #ffffff;
+}
