@@ -30,6 +30,8 @@ export interface IconEntry {
   group: IconGroupId;
   /** Ein oder mehrere Unterpfade im 24er-Raster. */
   path: string;
+  /** Gefüllte Fläche statt Strich — nur für die eine Ausnahme „Stern gefüllt“. */
+  fill?: boolean;
 }
 
 export const iconGroups = [
@@ -248,7 +250,7 @@ export const icons = [
   {
     name: 'Feed',
     group: 'medien',
-    path: 'M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM8 17a6 6 0 0 1 0-8M16 9a6 6 0 0 1 0 8M5 20a10 10 0 0 1 0-14M19 6a10 10 0 0 1 0 14'
+    path: 'M5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M5 12a8 8 0 0 1 8 8M5 5a15 15 0 0 1 15 15'
   },
   {
     name: 'Wiedergabeliste',
@@ -698,7 +700,111 @@ export const icons = [
     group: 'system',
     path: 'M8 6h8a6 6 0 0 1 0 12H8A6 6 0 0 1 8 6zM8 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6'
   },
-  { name: 'Kontrast', group: 'system', path: 'M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM12 4v16' }
+  { name: 'Kontrast', group: 'system', path: 'M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM12 4v16' },
+
+  /* --- Zusätzliche Motive (25) ---------------------------------------- */
+  {
+    name: 'Buch',
+    group: 'datei',
+    path: 'M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4zM20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z'
+  },
+  { name: 'Abmelden', group: 'navigation', path: 'M14 5H5v14h9M13 12h8M18 9l3 3-3 3' },
+  { name: 'Zitat', group: 'kommunikation', path: 'M9 7H5v5h4v5H5M19 7h-4v5h4v5h-4' },
+  { name: 'PanelRechts', group: 'navigation', path: 'M3 4h18v16H3zM15 4v16' },
+  {
+    name: 'Werkzeug',
+    group: 'aktion',
+    path: 'M15 4a5 5 0 0 0-4.2 7.8L4 18.6 5.4 20l6.8-6.8A5 5 0 0 0 20 9l-3 1-2-2z'
+  },
+  {
+    name: 'Kaffee',
+    group: 'geraet',
+    path: 'M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 10h2a3 3 0 0 1 0 6h-2M8 4v2M12 4v2'
+  },
+  {
+    name: 'Liniendiagramm',
+    group: 'system',
+    path: 'M4 4v16h16M7 15l4-5 3 2 5-7'
+  },
+  {
+    name: 'Sparschwein',
+    group: 'handel',
+    path: 'M4 12a6 6 0 0 1 6-6h3a6 6 0 0 1 6 6v3h-2l-1 3H9l-1-3H6v3M10 12h.01M16 6l2-2M14 12h.01'
+  },
+  { name: 'Regler', group: 'system', path: 'M4 7h16M4 17h16M9 4v6M15 14v6' },
+  {
+    name: 'Aktentasche',
+    group: 'handel',
+    path: 'M3 8h18v11H3zM9 8V5h6v3M3 13h18M11 13h2'
+  },
+  {
+    name: 'Tresor',
+    group: 'handel',
+    path: 'M4 4h16v16H4zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8M12 11v2M4 8h2M4 16h2'
+  },
+  {
+    name: 'Denken',
+    group: 'person',
+    path: 'M9 5a3 3 0 0 0-3 3 3 3 0 0 0-1 5 3 3 0 0 0 2 4 3 3 0 0 0 5 1V5a3 3 0 0 0-3 0zM15 5a3 3 0 0 1 3 3 3 3 0 0 1 1 5 3 3 0 0 1-2 4 3 3 0 0 1-5 1'
+  },
+  {
+    name: 'Studium',
+    group: 'person',
+    path: 'M3 9l9-4 9 4-9 4zM7 11v5c0 1.5 2.2 3 5 3s5-1.5 5-3v-5M21 9v5'
+  },
+  { name: 'Euro', group: 'handel', path: 'M17 7a6 6 0 1 0 0 10M4 10h8M4 14h8' },
+  {
+    name: 'Sync',
+    group: 'system',
+    path: 'M4 12a8 8 0 0 1 13.7-5.7L20 8M20 12a8 8 0 0 1-13.7 5.7L4 16M20 4v4h-4M4 20v-4h4'
+  },
+  {
+    name: 'Bus',
+    group: 'navigation',
+    path: 'M4 5h16v11H4zM4 10h16M7 16v3M17 16v3M7 19h.01M17 19h.01M4 16h16'
+  },
+  {
+    name: 'Flugzeug',
+    group: 'navigation',
+    path: 'M10 4a2 2 0 0 1 4 0v6l7 4v2l-7-2v5l2 2H8l2-2v-5l-7 2v-2l7-4z'
+  },
+  {
+    name: 'Geräte',
+    group: 'geraet',
+    path: 'M3 6h11v9H3zM9 19h5M6 15v4M17 9h4v9h-4zM18 9v9'
+  },
+  {
+    name: 'SternGefüllt',
+    group: 'status',
+    fill: true,
+    path: 'M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z'
+  },
+  {
+    name: 'Funken',
+    group: 'status',
+    path: 'M11 4l1.4 3.9L16 9l-3.6 1.1L11 14l-1.4-3.9L6 9l3.6-1.1zM18 13l.9 2.4L21 16l-2.1.6L18 19l-.9-2.4L15 16l2.1-.6z'
+  },
+  {
+    name: 'Wiederholung',
+    group: 'aktion',
+    path: 'M4 9a8 8 0 0 1 14-3l2 2M20 4v4h-4M20 15a8 8 0 0 1-14 3l-2-2M4 20v-4h4'
+  },
+  { name: 'Flagge', group: 'status', path: 'M6 21V4M6 4h11l-2 4 2 4H6' },
+  {
+    name: 'Timer',
+    group: 'system',
+    path: 'M12 8v4l3 2M9 3h6M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16'
+  },
+  {
+    name: 'Glühbirne',
+    group: 'system',
+    path: 'M12 4a5 5 0 0 0-3 9v2h6v-2a5 5 0 0 0-3-9M9 18h6M10 21h4'
+  },
+  {
+    name: 'Abzeichen',
+    group: 'status',
+    path: 'M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6zM9 12l2 2 4-4'
+  }
 ] as const satisfies readonly IconEntry[];
 
 export type IconName = (typeof icons)[number]['name'];

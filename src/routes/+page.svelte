@@ -2,12 +2,14 @@
   import { resolve } from '$app/paths';
   import Button from '#lib/components/Button.svelte';
   import { components } from '#lib/components/manifest';
+  import { iconCount } from '#lib/designspace/icons/index';
+  import { vorlagen } from '#lib/vorlagen';
   import { directions } from '#lib/taste/registry';
 
   const meta = [
     { label: 'Komponenten', value: String(components.length) },
-    { label: 'Richtungen', value: String(directions.length) },
-    { label: 'Hintergrund', value: '#000000' },
+    { label: 'Vorlagen', value: String(vorlagen.length) },
+    { label: 'Icons', value: String(iconCount) },
     { label: 'Schrift', value: 'Atkinson' }
   ];
 </script>

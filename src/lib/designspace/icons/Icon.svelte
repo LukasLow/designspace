@@ -21,7 +21,7 @@
   viewBox="0 0 24 24"
   width={size}
   height={size}
-  fill="none"
+  fill={icon.fill ? 'currentColor' : 'none'}
   stroke="currentColor"
   stroke-width={stroke}
   stroke-linecap="round"

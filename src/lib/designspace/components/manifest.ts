@@ -37,7 +37,7 @@ const planned = (
   kind
 });
 
-export const components: ComponentEntry[] = [
+export const entries: ComponentEntry[] = [
   {
     slug: 'button',
     name: 'Button',
@@ -495,4 +495,396 @@ export const components: ComponentEntry[] = [
   planned('brush-tool', 'Pinsel', 'Malt mit Größe und Deckkraft.'),
   planned('shortcut-panel', 'Tastenübersicht', 'Listet Tastenkürzel nach Bereich.'),
   planned('status-bar', 'Statusleiste', 'Zeigt Zustand, Auswahl und Hinweise am Rand.')
+];
+
+/**
+ * Gebaute Komponenten. Sie ersetzen gleichnamige geplante Einträge, damit die
+ * Liste keine Doppelungen zeigt, auch wenn oben noch ein Platzhalter steht.
+ */
+const built: ComponentEntry[] = [
+  {
+    slug: 'nav-rail',
+    name: 'NavRail',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Schmale Leiste mit Icon und Label, aktive Zeile in Petrol-Soft und 3-px-Marke.'
+  },
+  {
+    slug: 'top-bar',
+    name: 'TopBar',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Kopfleiste mit Marke, Navigation und Aktionen; mobil ohne Navigationszeile.'
+  },
+  {
+    slug: 'bottom-nav',
+    name: 'BottomNav',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Mobile Hauptnavigation mit 48-px-Flächen, aktiver Bereich als Petrol-Kante.'
+  },
+  {
+    slug: 'footer-nav',
+    name: 'FooterNav',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Fußnavigation mit Gruppen, Hinweis und Rechtstext, Ziele 48 px hoch.'
+  },
+  {
+    slug: 'status-bar',
+    name: 'StatusBar',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Statusleiste mit Mono-Werten und Rollenfarbe nur für den Wert.'
+  },
+  {
+    slug: 'breadcrumb',
+    name: 'Breadcrumb',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Pfad als Mono-Zeile, letzte Station mit aria-current statt Link.'
+  },
+  {
+    slug: 'page-header',
+    name: 'PageHeader',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Hero mit Eyebrow, Titel, Beschreibung, Meta und Aktionen.'
+  },
+  {
+    slug: 'brand-lockup',
+    name: 'BrandLockup',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Marke als Zeichen und Wortmarke in drei Größen, optional als Link.'
+  },
+  {
+    slug: 'segmented',
+    name: 'Segmented',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Drei bis fünf Optionen, gewählte Fläche in Petrol, Pfeiltasten wechseln.'
+  },
+  {
+    slug: 'toolbar',
+    name: 'Toolbar',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Werkzeugreihe mit aktivem Zustand, mobil nur Icons mit waagerechtem Scroll.'
+  },
+  {
+    slug: 'search-field',
+    name: 'SearchField',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Suchfeld mit Lupe, Löschen und Vorschlägen, Fokusring um das ganze Feld.'
+  },
+  {
+    slug: 'stat',
+    name: 'Stat',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Kennzahl mit Label, Wert und Veränderung, Richtung in der Rollenfarbe.'
+  },
+  {
+    slug: 'progress',
+    name: 'Progress',
+    status: 'entwurf',
+    variants: 6,
+    description: 'Balken mit Wert, Beschriftung und fünf Rollen, unbestimmt nur ohne Dauer.'
+  },
+  {
+    slug: 'progress-ring',
+    name: 'ProgressRing',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Anteil als Ring mit Prozentwert, fünf Rollen und ruhigem Übergang.'
+  },
+  {
+    slug: 'status-badge',
+    name: 'StatusBadge',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Marke mit Punkt und kurzem Text in sieben Rollen.'
+  },
+  {
+    slug: 'status-dot',
+    name: 'StatusDot',
+    status: 'entwurf',
+    variants: 6,
+    description: 'Statuspunkt mit Text, Puls nur bei laufender Arbeit.'
+  },
+  {
+    slug: 'empty-state',
+    name: 'EmptyState',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Leerer Zustand mit einem Satz und einer Handlung, ohne Illustration.'
+  },
+  {
+    slug: 'inline-alert',
+    name: 'InlineAlert',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Hinweis im Fluss in vier Rollen, zusätzlich als ruhiger Callout.'
+  },
+  {
+    slug: 'kbd',
+    name: 'Kbd',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Tastenkürzel als Taste mit Unterkante, eine oder mehrere Tasten.'
+  },
+  {
+    slug: 'table',
+    name: 'Table',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Datenzeilen mit sortierbarem Kopf, dichter Variante und Mono-Ziffern.'
+  },
+  {
+    slug: 'accordion',
+    name: 'Accordion',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Aufklappbare Abschnitte, einer oder mehrere offen, Pfeil dreht senkrecht.'
+  },
+  {
+    slug: 'list-row',
+    name: 'ListRow',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Zeile mit Icon, Text, Meta und Aktion, als Link mit Chevron.'
+  },
+  {
+    slug: 'detail-list',
+    name: 'DetailList',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Bezeichnung-Wert-Paare ein- oder zweispaltig, ohne Karten.'
+  },
+  {
+    slug: 'timeline',
+    name: 'Timeline',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Ereignisse in Zeitfolge, Marker in der Rolle des Zustands.'
+  },
+  {
+    slug: 'kanban',
+    name: 'Kanban',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Spalten mit Karten, Ziehen am Zeiger und Verschieben per Pfeiltaste.'
+  },
+  {
+    slug: 'anchor-links',
+    name: 'AnchorLinks',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Sprungmarken mit optionalem Alphabet-Index und markiertem Abschnitt.'
+  },
+  {
+    slug: 'article-section',
+    name: 'ArticleSection',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Artikelabschnitt mit Eyebrow, Titel, Fließtext und Randnotiz.'
+  },
+  {
+    slug: 'knowledge-gap',
+    name: 'KnowledgeGap',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Offene Frage als Gold-Fläche mit Quelle und Handlung.'
+  },
+  {
+    slug: 'sparkline',
+    name: 'Sparkline',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Kleine Linie ohne Achsen, fünf Rollen, Label mit den Werten.'
+  },
+  {
+    slug: 'line-chart',
+    name: 'LineChart',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Verlauf über eine Zeitachse mit Hilfslinien, Legende und sechs Farben.'
+  },
+  {
+    slug: 'select',
+    name: 'Select',
+    status: 'entwurf',
+    variants: 6,
+    description: 'Auswahl im Feld mit nativer Tastatur und eigener Optik.'
+  },
+  {
+    slug: 'textarea',
+    name: 'Textarea',
+    status: 'entwurf',
+    variants: 6,
+    description: 'Mehrzeiliges Feld mit Hinweis, Fehler und Zeichenzähler.'
+  },
+  {
+    slug: 'file-upload',
+    name: 'FileUpload',
+    status: 'entwurf',
+    variants: 6,
+    description: 'Ablage mit Zustand pro Datei und 48-px-Entfernen.'
+  },
+  {
+    slug: 'stepper',
+    name: 'Stepper',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Schritte mit Nummern, Haken für erledigt und Petrol für den aktuellen Schritt.'
+  },
+  {
+    slug: 'currency-field',
+    name: 'CurrencyField',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Betrag mit Symbol und Code in drei Währungen, Ziffern in Mono.'
+  },
+  {
+    slug: 'radio-cards',
+    name: 'RadioCards',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Radio-Auswahl als große Karten, gewählte Karte in Petrol.'
+  },
+  {
+    slug: 'date-picker',
+    name: 'DatePicker',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Datum im Feld mit Schnellwahl und Grenzen, ohne eigenen Kalender.'
+  },
+  {
+    slug: 'sheet',
+    name: 'Sheet',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Karte von rechts oder unten über Scrim, nativer Fokus und Escape.'
+  },
+  {
+    slug: 'context-menu',
+    name: 'ContextMenu',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Aktionen am Zeiger, gefährliche und gesperrte Einträge inklusive.'
+  },
+  {
+    slug: 'permission-dialog',
+    name: 'PermissionDialog',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Berechtigung mit klarem Nein, klarem Ja und sichtbarer Rolle.'
+  },
+  {
+    slug: 'message-row',
+    name: 'MessageRow',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Nachrichtenzeile mit Avatar, eigene Nachricht rechts in Petrol-Soft.'
+  },
+  {
+    slug: 'chat-composer',
+    name: 'Chat Composer',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Eingabeleiste mit wachsendem Feld, Enter sendet, Senden 48 px.'
+  },
+  {
+    slug: 'code-block',
+    name: 'Code Block',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Code mit Zeilennummern, Sprache und Kopieren mit Rückmeldung.'
+  },
+  {
+    slug: 'pdf-viewer',
+    name: 'PdfViewer',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Dokumentseiten blättern mit Seitenzahl und gesperrten Grenzen.'
+  },
+  {
+    slug: 'media-controls',
+    name: 'MediaControls',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Abspielen, Springen und Position mit Mono-Zeiten und Regler.'
+  },
+  {
+    slug: 'zoom-control',
+    name: 'ZoomControl',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Zoom in Stufen mit Prozentwert als 100-%-Knopf und Grenzen.'
+  },
+  {
+    slug: 'recording-indicator',
+    name: 'RecordingIndicator',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Aufnahme mit rotem Punkt, Zeit und Stopp, ohne Blinken bei reduzierter Bewegung.'
+  },
+  {
+    slug: 'resizable',
+    name: 'Resizable',
+    status: 'entwurf',
+    variants: 5,
+    description: 'Zwei Bereiche mit ziehbarer Trennung, 48-px-Griff und Tastatur.'
+  },
+  {
+    slug: 'scroll-area',
+    name: 'ScrollArea',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Fläche mit dünnem eigenem Scrollbalken und Tastaturfokus.'
+  },
+  {
+    slug: 'plan-card',
+    name: 'PlanCard',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Tarifkarte mit Preis, Merkmalen, empfohlenem und aktuellem Zustand.'
+  },
+  {
+    slug: 'store-badge',
+    name: 'StoreBadge',
+    status: 'entwurf',
+    variants: 3,
+    description: 'App-Store- und Play-Verweis mit Zeichen, Hinweis und 48-px-Ziel.'
+  },
+  {
+    slug: 'trust-badge',
+    name: 'TrustBadge',
+    status: 'entwurf',
+    variants: 4,
+    description: 'Vertrauensmarke mit Zeichen, Titel und Satz in drei Rollen.'
+  },
+  {
+    slug: 'fab',
+    name: 'Fab',
+    status: 'entwurf',
+    variants: 6,
+    description: 'Schwebender Aktionsknopf, 56 px, rund oder mit Text, Druck senkrecht.'
+  },
+  {
+    slug: 'back-link',
+    name: 'BackLink',
+    status: 'entwurf',
+    variants: 3,
+    description: 'Zurück-Verweis mit Pfeil, 48-px-Ziel und sichtbarem Fokus.'
+  }
+];
+
+const builtSlugs = new Set(built.map((entry) => entry.slug));
+
+export const components: ComponentEntry[] = [
+  ...entries.filter((entry) => !(entry.status === 'geplant' && builtSlugs.has(entry.slug))),
+  ...built
 ];
