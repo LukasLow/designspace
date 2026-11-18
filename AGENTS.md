@@ -40,9 +40,9 @@ anderen Projekt übernehmbar sein.
   Komponenten-Frage (Button, Switch, Karte), keine Form-Frage.
 - **Druck ist senkrecht.** Beim Drücken geht es nach unten oder das Element wird
   minimal kleiner — **nie** seitlich, nie diagonal.
-- **Material ist matt (Runde 10).** Interaktive Flächen tragen feines Korn, kein
-  Glanzlicht, keinen Wurfschatten. Utility: `.ds-matte` in `styles/materials.css`.
-  Glas ist verworfen.
+- **Material trägt eine Lichtkante (Runde 11, ersetzt Runde 10).** Interaktive
+  Flächen haben einen feinen Verlauf von oben (`--ds-brand-top`, `--ds-gloss`);
+  kein Wurfschatten, kein Glas, kein Korn-Zwang.
 - Atkinson Hyperlegible, **immer** (400/700), self-hosted über Fontsource.
   Kein Font-CDN, kein Schriftwechsel.
 - `prefers-reduced-motion` respektieren.

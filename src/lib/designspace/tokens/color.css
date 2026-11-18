@@ -36,9 +36,10 @@
   --ds-brand: #37b5be; /* Petrol · Handlung als Fläche: Buttons, aktive Fläche */
   --ds-brand-ink: #001416; /* Text auf Petrol */
   --ds-brand-soft: rgba(55, 181, 190, 0.14);
-  /* Matte Variante der Marke: heller, damit schwarze Schrift 5,6:1 erreicht.
-     Gleiche Bedeutung, anderes Material — kein eigener Token für eine neue Rolle. */
-  --ds-brand-matte: #67b3b8;
+  /* Runde 11: Matt ist zurückgenommen. Flächen tragen eine Lichtkante oben. */
+  --ds-brand-top: #55cdd5;
+  --ds-gloss: rgba(255, 255, 255, 0.35);
+  --ds-brand-matte: #37b5be;
 
   --ds-info: #00a8e8; /* Powerade · Information als Linie/Text: Links, Werte */
   --ds-info-ink: #001018;

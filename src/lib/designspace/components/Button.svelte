@@ -36,8 +36,7 @@
 
 <style>
   /* Form: Turnier-Sieger Runde 9 (Radius 18).
-     Material: Runde 10 (matt, Korn, kein Glanzlicht, schwarze Schrift).
-     Farbe: Runde 6 (Fläche). Druck: Runde 4 (senkrecht). */
+     Material: Runde 11 (Lichtkante statt Matt), Druck: Runde 4 (senkrecht). */
 
   .btn {
     display: inline-flex;
@@ -71,8 +70,9 @@
   /* ------------------------------------------------------------ Fläche */
 
   .primary {
-    background-color: var(--ds-brand-matte);
+    background: linear-gradient(180deg, var(--ds-brand-top), var(--ds-brand));
     color: #000000;
+    box-shadow: inset 0 1px 0 var(--ds-gloss);
   }
 
   .danger {
