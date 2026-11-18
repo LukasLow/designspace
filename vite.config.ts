@@ -4,7 +4,9 @@ import { defineConfig } from 'vite';
 
 // GitHub Pages liefert unter /<repo>/ aus. Der Workflow setzt BASE_PATH;
 // lokal bleibt es leer, damit alles auf / läuft.
-const base = process.env.BASE_PATH ?? '';
+// Ohne @types/node deklarieren wir hier nur das eine Feld, das wir brauchen.
+declare const process: { env: Record<string, string | undefined> };
+const base = (process.env.BASE_PATH ?? '') as '' | `/${string}`;
 
 export default defineConfig({
   plugins: [
