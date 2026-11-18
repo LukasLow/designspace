@@ -248,13 +248,13 @@
 {/snippet}
 
 {#snippet topNav()}
-  <a href="/components/" aria-current="page">Komponenten</a>
-  <a href="/vorlagen/">Vorlagen</a>
-  <a href="/taste/">Runden</a>
+  <a href={resolve('/components')} aria-current="page">Komponenten</a>
+  <a href={resolve('/vorlagen')}>Vorlagen</a>
+  <a href={resolve('/taste')}>Runden</a>
 {/snippet}
 
 {#snippet topActions()}
-  <Button variant="secondary" href="/rules/">Regeln</Button>
+  <Button variant="secondary" href={resolve('/rules')}>Regeln</Button>
 {/snippet}
 
 {#snippet pageActions()}
@@ -679,7 +679,7 @@
               description="Freigegeben von Lena"
               meta="2,4 MB"
               icon="Dokument"
-              href="/components/list-row/"
+              href={resolve('/components/list-row')}
             />
             <ListRow title="Aktive Auswahl" description="Diese Zeile ist markiert" icon="Haken" active action={rowAction} />
           </div>
@@ -955,7 +955,7 @@
           </div>
         {:else if doc.slug === 'back-link'}
           <div class="stack">
-            <BackLink href="/components/" label="Zurück zu den Komponenten" />
+            <BackLink href={resolve('/components')} label="Zurück zu den Komponenten" />
             <BackLink href="/" label="Zur Startseite" />
           </div>
         {/if}
