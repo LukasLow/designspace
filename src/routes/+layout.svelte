@@ -1,17 +1,17 @@
 <script lang="ts">
   import '../app.css';
-  import { resolve } from '$app/paths';
+  import { base, resolve } from '$app/paths';
   import { page } from '$app/state';
 
   let { children } = $props();
 
   const nav = [
-    { href: resolve('/'), label: 'Start' },
-    { href: resolve('/components'), label: 'Komponenten' },
-    { href: resolve('/vorlagen'), label: 'Vorlagen' },
-    { href: resolve('/icons'), label: 'Icons' },
-    { href: resolve('/rules'), label: 'Regeln' },
-    { href: resolve('/taste'), label: 'Archiv' }
+    { href: `${base}/`, label: 'Start' },
+    { href: `${base}/components`, label: 'Komponenten' },
+    { href: `${base}/vorlagen`, label: 'Vorlagen' },
+    { href: `${base}/icons`, label: 'Icons' },
+    { href: `${base}/rules`, label: 'Regeln' },
+    { href: `${base}/taste`, label: 'Archiv' }
   ] as const;
 
   const path = $derived(page.url.pathname);
