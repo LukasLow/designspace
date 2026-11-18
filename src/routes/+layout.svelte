@@ -1,9 +1,12 @@
 <script lang="ts">
   import '../app.css';
-  import { base, resolve } from '$app/paths';
+  import { resolve } from '$app/paths';
   import { page } from '$app/state';
 
   let { children } = $props();
+
+  // Vite kennt den Basispfad beim Bauen; resolve() liefert ihn im Layout nicht.
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   const nav = [
     { href: `${base}/`, label: 'Start' },
