@@ -113,9 +113,9 @@
   ];
 
   const footerGroups = [
-    { title: 'Produkt', links: [{ label: 'Komponenten', href: '/components/' }, { label: 'Vorlagen', href: '/vorlagen/' }] },
-    { title: 'Projekt', links: [{ label: 'Runden', href: '/taste/' }, { label: 'Icons', href: '/icons/' }] },
-    { title: 'Rechtliches', links: [{ label: 'Regeln', href: '/rules/' }, { label: 'Barrierefreiheit', href: '/rules/' }] }
+    { title: 'Produkt', links: [{ label: 'Komponenten', href: resolve('/components') }, { label: 'Vorlagen', href: resolve('/vorlagen') }] },
+    { title: 'Projekt', links: [{ label: 'Runden', href: resolve('/taste') }, { label: 'Icons', href: resolve('/icons') }] },
+    { title: 'Rechtliches', links: [{ label: 'Regeln', href: resolve('/rules') }, { label: 'Barrierefreiheit', href: resolve('/rules') }] }
   ];
 
   const tabItems = [
@@ -547,7 +547,7 @@
           </div>
         {:else if doc.slug === 'breadcrumb'}
           <div class="stack">
-            <Breadcrumb items={[{ label: 'Start', href: '/' }, { label: 'Komponenten', href: '/components/' }, { label: 'Breadcrumb' }]} />
+            <Breadcrumb items={[{ label: 'Start', href: resolve('/') }, { label: 'Komponenten', href: resolve('/components') }, { label: 'Breadcrumb' }]} />
             <Breadcrumb items={[{ label: 'Konto', href: '/' }, { label: 'Sicherheit', href: '/' }, { label: 'Geräte', href: '/' }, { label: 'Dieses Gerät' }]} />
           </div>
         {:else if doc.slug === 'page-header'}
