@@ -6,12 +6,12 @@
   let { children } = $props();
 
   const nav = [
-    { href: '/', label: 'Start' },
-    { href: '/components', label: 'Komponenten' },
-    { href: '/vorlagen', label: 'Vorlagen' },
-    { href: '/icons', label: 'Icons' },
-    { href: '/rules', label: 'Regeln' },
-    { href: '/taste', label: 'Archiv' }
+    { href: resolve('/'), label: 'Start' },
+    { href: resolve('/components'), label: 'Komponenten' },
+    { href: resolve('/vorlagen'), label: 'Vorlagen' },
+    { href: resolve('/icons'), label: 'Icons' },
+    { href: resolve('/rules'), label: 'Regeln' },
+    { href: resolve('/taste'), label: 'Archiv' }
   ] as const;
 
   const path = $derived(page.url.pathname);

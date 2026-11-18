@@ -548,7 +548,7 @@
         {:else if doc.slug === 'breadcrumb'}
           <div class="stack">
             <Breadcrumb items={[{ label: 'Start', href: resolve('/') }, { label: 'Komponenten', href: resolve('/components') }, { label: 'Breadcrumb' }]} />
-            <Breadcrumb items={[{ label: 'Konto', href: '/' }, { label: 'Sicherheit', href: '/' }, { label: 'Geräte', href: '/' }, { label: 'Dieses Gerät' }]} />
+            <Breadcrumb items={[{ label: 'Konto', href: resolve('/') }, { label: 'Sicherheit', href: resolve('/') }, { label: 'Geräte', href: resolve('/') }, { label: 'Dieses Gerät' }]} />
           </div>
         {:else if doc.slug === 'page-header'}
           <PageHeader
@@ -938,8 +938,8 @@
           </div>
         {:else if doc.slug === 'store-badge'}
           <div class="row">
-            <StoreBadge store="apple" href="/" />
-            <StoreBadge store="google" href="/" />
+            <StoreBadge store="apple" href={resolve('/')} />
+            <StoreBadge store="google" href={resolve('/')} />
           </div>
         {:else if doc.slug === 'trust-badge'}
           <div class="stack">
@@ -956,7 +956,7 @@
         {:else if doc.slug === 'back-link'}
           <div class="stack">
             <BackLink href={resolve('/components')} label="Zurück zu den Komponenten" />
-            <BackLink href="/" label="Zur Startseite" />
+            <BackLink href={resolve('/')} label="Zur Startseite" />
           </div>
         {/if}
       </div>
