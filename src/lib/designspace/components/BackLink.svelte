@@ -2,7 +2,7 @@
   import Icon from '#lib/designspace/icons/Icon.svelte';
 
   let {
-    href = '/',
+    href = '#',
     label = 'Zurück'
   }: {
     href?: string;

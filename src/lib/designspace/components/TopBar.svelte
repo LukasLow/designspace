@@ -4,7 +4,7 @@
 
   let {
     brand = 'DesignSpace',
-    home = '/',
+    home = '',
     sticky = false,
     nav,
     actions
