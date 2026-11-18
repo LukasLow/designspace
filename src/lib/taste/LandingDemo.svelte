@@ -22,7 +22,7 @@
 
 <div class="page" data-l={variant}>
   <header class="nav">
-    <span class="brand"><span class="logo" aria-hidden="true">N</span> DesignSpace</span>
+    <span class="brand"><span class="logo" aria-hidden="true"></span> DesignSpace</span>
     <nav class="links" aria-hidden="true">
       <span>Produkt</span>
       <span>Bibliothek</span>

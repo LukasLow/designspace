@@ -6,12 +6,14 @@
     physics = 'feder',
     href,
     disabled = false,
+    onclick,
     children
   }: {
     variant?: 'primary' | 'secondary' | 'ghost' | 'danger';
     physics?: 'feder' | 'taste';
     href?: string;
     disabled?: boolean;
+    onclick?: (event: MouseEvent) => void;
     children: Snippet;
   } = $props();
 </script>
@@ -20,13 +22,14 @@
   <a
     class="btn {variant} {physics}"
     {href}
+    {onclick}
     aria-disabled={disabled ? 'true' : undefined}
     tabindex={disabled ? -1 : undefined}
   >
     {@render children()}
   </a>
 {:else}
-  <button class="btn {variant} {physics}" type="button" {disabled}>
+  <button class="btn {variant} {physics}" type="button" {disabled} {onclick}>
     {@render children()}
   </button>
 {/if}

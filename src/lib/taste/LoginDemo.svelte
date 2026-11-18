@@ -18,7 +18,7 @@
   <div class="panel">
     {#if variant !== 'kompakt'}
       <div class="brand">
-        <span class="logo" aria-hidden="true">N</span>
+        <span class="logo" aria-hidden="true"></span>
         <span class="name">DesignSpace</span>
       </div>
     {/if}
@@ -68,9 +68,16 @@
     height: 34px;
     border-radius: 10px;
     background: var(--ds-brand);
-    color: #000;
-    font-size: 18px;
-    font-weight: 700;
+  }
+
+  /* Das DesignSpace-Zeichen: aufrechter Rahmen, nur das Zeichen ist gedreht. */
+  .logo::before {
+    content: '';
+    width: 13px;
+    height: 13px;
+    border: var(--ds-border-strong) solid var(--ds-brand-ink);
+    border-radius: var(--ds-radius-xs);
+    transform: rotate(45deg);
   }
 
   .name {

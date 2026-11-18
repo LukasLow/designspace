@@ -1,10 +1,24 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
   import Button from '#lib/components/Button.svelte';
   import Checkbox from '#lib/components/Checkbox.svelte';
   import Field from '#lib/components/Field.svelte';
+  import InlineAlert from '#lib/components/InlineAlert.svelte';
   import type { RegisterVariant } from './register-routes';
 
   let { variant }: { variant: RegisterVariant } = $props();
+
+  // Die Zustimmung ist eine bewusste Handlung: nie vorausgewählt.
+  let accepted = $state(false);
+  let blocked = $state(false);
+
+  function submit() {
+    if (!accepted) {
+      blocked = true;
+      return;
+    }
+    blocked = false;
+  }
 </script>
 
 <div class="demo" data-r={variant}>
@@ -19,7 +33,7 @@
   <div class="panel">
     {#if variant !== 'kompakt'}
       <div class="brand">
-        <span class="logo" aria-hidden="true">N</span>
+        <span class="logo" aria-hidden="true"></span>
         <span class="name">DesignSpace</span>
       </div>
     {/if}
@@ -53,11 +67,20 @@
     </div>
 
     <div class="terms">
-      <Checkbox id={`terms-${variant}`} label="AGB und Datenschutz akzeptieren" checked />
+      <Checkbox id={`terms-${variant}`} label="AGB und Datenschutz akzeptieren" bind:checked={accepted} />
+      <p class="legal">AGB · Datenschutz</p>
+
+      {#if blocked && !accepted}
+        <div class="terms-error">
+          <InlineAlert tone="danger" title="Zustimmung fehlt">
+            Ohne AGB und Datenschutz lässt sich das Konto nicht anlegen.
+          </InlineAlert>
+        </div>
+      {/if}
     </div>
 
     <div class="actions">
-      <Button>{variant === 'schritte' ? 'Weiter' : 'Konto anlegen'}</Button>
+      <Button onclick={submit}>{variant === 'schritte' ? 'Weiter' : 'Konto anlegen'}</Button>
     </div>
 
     <p class="alt">Schon ein Konto? <a href="#top">Anmelden</a></p>
@@ -86,9 +109,16 @@
     height: 34px;
     border-radius: 10px;
     background: var(--ds-brand);
-    color: #000;
-    font-size: 18px;
-    font-weight: 700;
+  }
+
+  /* Das DesignSpace-Zeichen: aufrechter Rahmen, nur das Zeichen ist gedreht. */
+  .logo::before {
+    content: '';
+    width: 13px;
+    height: 13px;
+    border: var(--ds-border-strong) solid var(--ds-brand-ink);
+    border-radius: var(--ds-radius-xs);
+    transform: rotate(45deg);
   }
 
   .name {
@@ -157,7 +187,23 @@
   }
 
   .terms {
+    display: grid;
+    gap: var(--ds-space-1);
     margin-top: var(--ds-space-4);
+  }
+
+  .legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ds-space-3);
+    min-height: var(--ds-tap-min);
+    align-items: center;
+    font-size: var(--ds-text-sm);
+    font-weight: var(--ds-weight-bold);
+  }
+
+  .terms-error {
+    margin-top: var(--ds-space-2);
   }
 
   .actions {
